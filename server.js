@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import dotenv from "dotenv";
+import ServerlessHttp from "serverless-http";
 
 dotenv.config();
 
@@ -62,8 +63,8 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server started at port : ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server started at port : ${port}`);
+// });
 
-export default app;
+export default ServerlessHttp(app);
