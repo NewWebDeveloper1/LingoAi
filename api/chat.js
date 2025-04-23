@@ -2,7 +2,7 @@ import axios from "axios";
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://lingo-ai-frontend.vercel.app/",
+  "https://lingo-ai-frontend.vercel.app",
 ];
 
 export default async function handler(req, res) {
