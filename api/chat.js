@@ -1,8 +1,18 @@
 import axios from "axios";
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://lingo-ai-frontend.vercel.app/",
+];
+
 export default async function handler(req, res) {
+  const origin = req.headers.origin;
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   // Allow CORS
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
